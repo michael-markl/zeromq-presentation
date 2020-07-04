@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <script src="JSMQ.js"></script>
     <script>
         var subscriber = new JSMQ.Subscriber();
@@ -12,20 +12,22 @@
             impress().next()
         };
     </script>
-    <meta name="viewport" content="width=1024" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=1024"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
     <title>ZeroMQ Presentation</title>
 
-    <meta name="description" content="impress.js is a presentation tool based on the power of CSS3 transforms and transitions in modern browsers and inspired by the idea behind prezi.com." />
-    <meta name="author" content="Bartek Szopka" />
+    <meta name="description"
+          content="impress.js is a presentation tool based on the power of CSS3 transforms and transitions in modern browsers and inspired by the idea behind prezi.com."/>
+    <meta name="author" content="Bartek Szopka"/>
 
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic"
+          rel="stylesheet"/>
 
-    <link href="css/impress-demo.css" rel="stylesheet" />
-    <link href="css/impress-common.css" rel="stylesheet" />
+    <link href="css/impress-demo.css" rel="stylesheet"/>
+    <link href="css/impress-common.css" rel="stylesheet"/>
 
-    <link rel="shortcut icon" href="favicon.png" />
-    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="shortcut icon" href="favicon.png"/>
+    <link rel="apple-touch-icon" href="apple-touch-icon.png"/>
 </head>
 
 <!--
@@ -52,7 +54,8 @@
     For example this fallback message is only visible when there is `impress-not-supported` class on body.
 -->
 <div class="fallback-message">
-    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified
+        version of this presentation.</p>
     <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
 </div>
 
@@ -88,80 +91,103 @@
     to next slide after a timeout expires.
 -->
 <div id="impress"
-    data-transition-duration="1000"
+     data-transition-duration="1000"
 
-    data-width="1920"
-    data-height="1080"
-    data-max-scale="3"
-    data-min-scale="0">
+     data-width="1920"
+     data-height="1080"
+     data-max-scale="3"
+     data-min-scale="0">
 
     <div id="zeromq" class="step slide" data-x="0" data-y="0" data-scale="0.75">
-        <img src="images/logo.gif" />
+        <img src="images/logo.gif"/>
         <div>A socket-based message-queuing library.</div>
         <div id="zero"></div>
     </div>
 
     <!-- 1.42 * 1920 / 2 = 1363.2 - 500/2 -->
-    <div id="why-zeromq" class="step box" data-x="0" data-y="-1000" data-scale="0.3">
+    <div id="why-zeromq-1" class="step box why-zeromq" data-x="0" data-y="-1000" data-scale="0.3">
         <div>
-        <h1>Let's build some messaging system...</h1>
-        <svg>
-            <defs>
-                <marker  id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="3" orient="auto-start-reverse" markerUnits="strokeWidth">
-                    <path d="M0,0 L0,6 L10,3 z" fill="#333" />
-                </marker>
-            </defs>
+            <h1>Let's build some messaging system...</h1>
+            <svg>
+                <defs>
+                    <marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="3" orient="auto-start-reverse"
+                            markerUnits="strokeWidth">
+                        <path d="M0,0 L0,6 L10,3 z" fill="#333"/>
+                    </marker>
+                </defs>
 
-            <rect x="885" y="300" width="150" height="150" fill="#777" rx="20" ry="20" />
-            <text x="960" y="375" text-anchor="middle" fill="#fff" dominant-baseline="middle" font-size="30">Piece A</text>
+                <rect x="885" y="300" width="150" height="150" fill="#777" rx="20" ry="20"/>
+                <text x="960" y="375" text-anchor="middle" fill="#fff" dominant-baseline="middle" font-size="30">Piece
+                    A
+                </text>
 
 
-            <rect x="885" y="700" width="150" height="150" fill="#777" rx="20" ry="20" />
-            <text x="960" y="775" text-anchor="middle" fill="#fff" dominant-baseline="middle" font-size="30">Piece B</text>
+                <rect x="885" y="700" width="150" height="150" fill="#777" rx="20" ry="20"/>
+                <text x="960" y="775" text-anchor="middle" fill="#fff" dominant-baseline="middle" font-size="30">Piece
+                    B
+                </text>
 
-            <line x1="959" y1="475" x2="959" y2="675" stroke="#333" stroke-width="5" marker-end="url(#arrow)" marker-start="url(#arrow)" />
-        </svg>
-        <svg class="substep">
-            <defs>
-                <marker  id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="3" orient="auto-start-reverse" markerUnits="strokeWidth">
-                    <path d="M0,0 L0,6 L10,3 z" fill="#333" />
-                </marker>
-            </defs>
-
-            <rect x="450" y="300" width="100" height="100" fill="#777" rx="20" ry="20" />
-            <rect x="450" y="800" width="100" height="100" fill="#777" rx="20" ry="20" />
-            <rect x="450" y="300" width="100" height="100" fill="#777" rx="20" ry="20" />
-            <rect x="900" y="100" width="100" height="100" fill="#777" rx="20" ry="20" />
-            <rect x="1200" y="300" width="100" height="100" fill="#777" rx="20" ry="20" />
-            <rect x="1500" y="600" width="100" height="100" fill="#777" rx="20" ry="20" />
-            <rect x="1400" y="800" width="100" height="100" fill="#777" rx="20" ry="20" />
-
-            <line x1="500" y1="425" x2="500" y2="800" stroke="#333" stroke-width="5" marker-start="url(#arrow)" />
-            <line x1="575" y1="850" x2="860" y2="775" stroke="#333" stroke-width="5" marker-start="url(#arrow)" marker-end="url(#arrow)" />
-            <line x1="1060" y1="775" x2="1375" y2="850" stroke="#333" stroke-width="5" marker-start="url(#arrow)" marker-end="url(#arrow)" />
-            <line x1="1495" y1="805" x2="1540" y2="723" stroke="#333" stroke-width="5" marker-end="url(#arrow)" />
-
-            <line x1="960" y1="475" x2="960" y2="675" stroke="#333" stroke-width="5" marker-end="url(#arrow)" marker-start="url(#arrow)" />
-            <line x1="1505" y1="605" x2="1310" y2="410" stroke="#333" stroke-width="5" marker-end="url(#arrow)" />
-            <line x1="960" y1="475" x2="960" y2="675" stroke="#333" stroke-width="5" marker-end="url(#arrow)" marker-start="url(#arrow)" />
-            <line x1="1200" y1="350" x2="1060" y2="375" stroke="#333" stroke-width="5" marker-end="url(#arrow)"  />
-
-            <line x1="905" y1="195" x2="570" y2="300" stroke="#333" stroke-width="5" marker-end="url(#arrow)"  />
-            <line x1="950" y1="200" x2="950" y2="275" stroke="#333" stroke-width="5" marker-end="url(#arrow)"  />
-            <line x1="995" y1="195" x2="1180" y2="295" stroke="#333" stroke-width="5" marker-end="url(#arrow)"  />
-
-        </svg>
-        <div class="substep">
-            Choose your style:
-            <ul style="list-style-type: circle;">
-                <li>Build Monolithic App</li>
-                <li>Write networking logic yourself</li>
-                <li style="width: 350px;">Purchase third party messaging product</li>
-            </ul>
+                <line x1="960" y1="475" x2="960" y2="675" stroke="#333" stroke-width="5" marker-end="url(#arrow)"
+                      marker-start="url(#arrow)"/>
+            </svg>
         </div>
-        <h1 class="substep">
-            Hint: It's a trap!
-        </h1>
+    </div>
+    <div id="why-zeromq-2" class="step why-zeromq" data-x="0" data-y="-1000" data-scale="0.3"
+         data-transition-duration="0">
+        <div>
+            <svg>
+                <defs>
+                    <marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="3"
+                            orient="auto-start-reverse" markerUnits="strokeWidth">
+                        <path d="M0,0 L0,6 L10,3 z" fill="#333"/>
+                    </marker>
+                </defs>
+
+                <rect x="450" y="300" width="100" height="100" fill="#777" rx="20" ry="20"/>
+                <rect x="450" y="800" width="100" height="100" fill="#777" rx="20" ry="20"/>
+                <rect x="450" y="300" width="100" height="100" fill="#777" rx="20" ry="20"/>
+                <rect x="900" y="100" width="100" height="100" fill="#777" rx="20" ry="20"/>
+                <rect x="1200" y="300" width="100" height="100" fill="#777" rx="20" ry="20"/>
+                <rect x="1500" y="600" width="100" height="100" fill="#777" rx="20" ry="20"/>
+                <rect x="1400" y="800" width="100" height="100" fill="#777" rx="20" ry="20"/>
+
+                <line x1="500" y1="425" x2="500" y2="800" stroke="#333" stroke-width="5"
+                      marker-start="url(#arrow)"/>
+                <line x1="575" y1="850" x2="860" y2="775" stroke="#333" stroke-width="5"
+                      marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+                <line x1="1060" y1="775" x2="1375" y2="850" stroke="#333" stroke-width="5"
+                      marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+                <line x1="1495" y1="805" x2="1540" y2="723" stroke="#333" stroke-width="5"
+                      marker-end="url(#arrow)"/>
+
+                <line x1="1505" y1="605" x2="1310" y2="410" stroke="#333" stroke-width="5"
+                      marker-end="url(#arrow)"/>
+                <line x1="1200" y1="350" x2="1060" y2="375" stroke="#333" stroke-width="5"
+                      marker-end="url(#arrow)"/>
+
+                <line x1="905" y1="195" x2="570" y2="300" stroke="#333" stroke-width="5"
+                      marker-end="url(#arrow)"/>
+                <line x1="950" y1="200" x2="950" y2="275" stroke="#333" stroke-width="5"
+                      marker-end="url(#arrow)"/>
+                <line x1="995" y1="195" x2="1180" y2="295" stroke="#333" stroke-width="5"
+                      marker-end="url(#arrow)"/>
+
+            </svg>
+        </div>
+    </div>
+
+    <div id="why-zeromq-3" class="step why-zeromq" data-x="0" data-y="-1000" data-scale="0.3"
+         data-transition-duration="0">
+        <div>
+            <div style="padding-top: 80px">
+                Choose your style:
+                <ul style="list-style-type: circle;">
+                    <li>Build Monolithic App</li>
+                    <li>Write networking logic yourself</li>
+                    <li style="width: 350px;">Purchase third party messaging product</li>
+                </ul>
+            </div>
+            <h1>Hint: It's a trap!</h1>
         </div>
     </div>
 
@@ -187,7 +213,6 @@
     <!-- 2.5244 = 1920/1080*1.42 -->
     <div id="overview" class="step" data-x="0" data-y="0" data-z="" data-scale="2.5244" data-rotate="360">
     </div>
-
 
 
     <!--
@@ -363,7 +388,6 @@
     For now, I'll just tell you that this adds some graphical controls to navigate the
     presentation. In the CSS file you can style them as you want. We've put them bottom right.
 -->
-<div id="impress-toolbar"></div>
 
 <!--
 
@@ -391,12 +415,12 @@
 -->
 <div class="hint">
     <p>Use a spacebar or arrow keys to navigate. <br/>
-       Press 'P' to launch speaker console.</p>
+        Press 'P' to launch speaker console.</p>
 </div>
 <script>
-if ("ontouchstart" in document.documentElement) {
-    document.querySelector(".hint").innerHTML = "<p>Swipe left or right to navigate</p>";
-}
+    if ("ontouchstart" in document.documentElement) {
+        document.querySelector(".hint").innerHTML = "<p>Swipe left or right to navigate</p>";
+    }
 </script>
 
 <!--
