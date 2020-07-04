@@ -1,0 +1,14 @@
+/home/michael/git/NetMQ.WebSockets/src/ConsoleApplication1/bin/Debug/ConsoleApplication1.exe.config
+/home/michael/git/NetMQ.WebSockets/src/ConsoleApplication1/bin/Debug/ConsoleApplication1.exe
+/home/michael/git/NetMQ.WebSockets/src/ConsoleApplication1/bin/Debug/ConsoleApplication1.pdb
+/home/michael/git/NetMQ.WebSockets/src/ConsoleApplication1/bin/Debug/AsyncIO.dll
+/home/michael/git/NetMQ.WebSockets/src/ConsoleApplication1/bin/Debug/NetMQ.dll
+/home/michael/git/NetMQ.WebSockets/src/ConsoleApplication1/bin/Debug/NetMQ.WebSockets.dll
+/home/michael/git/NetMQ.WebSockets/src/ConsoleApplication1/bin/Debug/NetMQ.WebSockets.pdb
+/home/michael/git/NetMQ.WebSockets/src/ConsoleApplication1/bin/Debug/NetMQ.WebSockets.dll.config
+/home/michael/git/NetMQ.WebSockets/src/ConsoleApplication1/bin/Debug/AsyncIO.pdb
+/home/michael/git/NetMQ.WebSockets/src/ConsoleApplication1/obj/Debug/ConsoleApplication1.csprojAssemblyReference.cache
+/home/michael/git/NetMQ.WebSockets/src/ConsoleApplication1/obj/Debug/ConsoleApplication1.csproj.CoreCompileInputs.cache
+/home/michael/git/NetMQ.WebSockets/src/ConsoleApplication1/obj/Debug/ConsoleApplication1.csproj.CopyComplete
+/home/michael/git/NetMQ.WebSockets/src/ConsoleApplication1/obj/Debug/ConsoleApplication1.exe
+/home/michael/git/NetMQ.WebSockets/src/ConsoleApplication1/obj/Debug/ConsoleApplication1.pdb

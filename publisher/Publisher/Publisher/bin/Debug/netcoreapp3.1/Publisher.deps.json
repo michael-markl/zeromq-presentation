@@ -1,0 +1,60 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "Publisher/1.0.0": {
+        "dependencies": {
+          "NetMQ": "3.3.0.10",
+          "NetMQ.WebSockets": "0.4.1-beta"
+        },
+        "runtime": {
+          "Publisher.dll": {}
+        }
+      },
+      "NetMQ/3.3.0.10": {
+        "runtime": {
+          "lib/net40/NetMQ.dll": {
+            "assemblyVersion": "3.3.0.10",
+            "fileVersion": "3.3.0.10"
+          }
+        }
+      },
+      "NetMQ.WebSockets/0.4.1-beta": {
+        "dependencies": {
+          "NetMQ": "3.3.0.10"
+        },
+        "runtime": {
+          "lib/net40/NetMQ.WebSockets.dll": {
+            "assemblyVersion": "0.4.1.0",
+            "fileVersion": "0.4.1.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Publisher/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "NetMQ/3.3.0.10": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hjBndMTnTx1Z+Guv/LnFiGctjanZwt/CMpriB1hckswqJRseVLWqIamO9QsfYFo1Qe0ocWlovd9vqegDPE3Nwg==",
+      "path": "netmq/3.3.0.10",
+      "hashPath": "netmq.3.3.0.10.nupkg.sha512"
+    },
+    "NetMQ.WebSockets/0.4.1-beta": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-nwQ2h23ci2qEaZEkwBjzOcfkxPacYEzP61isJovDBBYbDxh/jFAMQW4PReRG+YeNNWUezi3lv0EX9qQWo1smCw==",
+      "path": "netmq.websockets/0.4.1-beta",
+      "hashPath": "netmq.websockets.0.4.1-beta.nupkg.sha512"
+    }
+  }
+}

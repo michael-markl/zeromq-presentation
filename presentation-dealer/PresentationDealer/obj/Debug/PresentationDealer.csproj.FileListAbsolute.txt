@@ -1,0 +1,14 @@
+/home/michael/git/zeromq-presentation/presentation-dealer/PresentationDealer/bin/Debug/PresentationDealer.exe.config
+/home/michael/git/zeromq-presentation/presentation-dealer/PresentationDealer/bin/Debug/PresentationDealer.exe
+/home/michael/git/zeromq-presentation/presentation-dealer/PresentationDealer/bin/Debug/PresentationDealer.pdb
+/home/michael/git/zeromq-presentation/presentation-dealer/PresentationDealer/bin/Debug/AsyncIO.dll
+/home/michael/git/zeromq-presentation/presentation-dealer/PresentationDealer/bin/Debug/NetMQ.dll
+/home/michael/git/zeromq-presentation/presentation-dealer/PresentationDealer/bin/Debug/NetMQ.WebSockets.dll
+/home/michael/git/zeromq-presentation/presentation-dealer/PresentationDealer/bin/Debug/NetMQ.WebSockets.pdb
+/home/michael/git/zeromq-presentation/presentation-dealer/PresentationDealer/bin/Debug/NetMQ.WebSockets.dll.config
+/home/michael/git/zeromq-presentation/presentation-dealer/PresentationDealer/bin/Debug/AsyncIO.pdb
+/home/michael/git/zeromq-presentation/presentation-dealer/PresentationDealer/obj/Debug/PresentationDealer.csprojAssemblyReference.cache
+/home/michael/git/zeromq-presentation/presentation-dealer/PresentationDealer/obj/Debug/PresentationDealer.csproj.CoreCompileInputs.cache
+/home/michael/git/zeromq-presentation/presentation-dealer/PresentationDealer/obj/Debug/PresentationDealer.csproj.CopyComplete
+/home/michael/git/zeromq-presentation/presentation-dealer/PresentationDealer/obj/Debug/PresentationDealer.exe
+/home/michael/git/zeromq-presentation/presentation-dealer/PresentationDealer/obj/Debug/PresentationDealer.pdb

@@ -1,0 +1,3 @@
+/home/michael/git/NetMQ.WebSockets/src/NetMQ.WebSockets/obj/Debug/.NETFramework,Version=v4.0.AssemblyAttribute.cs
+/home/michael/git/NetMQ.WebSockets/src/NetMQ.WebSockets/bin/Debug/AsyncIO.dll
+/home/michael/git/NetMQ.WebSockets/src/NetMQ.WebSockets/bin/Debug/NetMQ.dll

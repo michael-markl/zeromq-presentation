@@ -1,0 +1,17 @@
+/home/michael/git/zeromq-presentation/presentation-dealer/NetMQ.WebSockets.Tests/bin/Debug/NetMQ.WebSockets.Tests.dll.config
+/home/michael/git/zeromq-presentation/presentation-dealer/NetMQ.WebSockets.Tests/bin/Debug/NetMQ.WebSockets.Tests.dll
+/home/michael/git/zeromq-presentation/presentation-dealer/NetMQ.WebSockets.Tests/bin/Debug/NetMQ.WebSockets.Tests.pdb
+/home/michael/git/zeromq-presentation/presentation-dealer/NetMQ.WebSockets.Tests/bin/Debug/AsyncIO.dll
+/home/michael/git/zeromq-presentation/presentation-dealer/NetMQ.WebSockets.Tests/bin/Debug/NetMQ.dll
+/home/michael/git/zeromq-presentation/presentation-dealer/NetMQ.WebSockets.Tests/bin/Debug/NetMQ.WebSockets.dll
+/home/michael/git/zeromq-presentation/presentation-dealer/NetMQ.WebSockets.Tests/bin/Debug/nunit.framework.dll
+/home/michael/git/zeromq-presentation/presentation-dealer/NetMQ.WebSockets.Tests/bin/Debug/WebSocket4Net.dll
+/home/michael/git/zeromq-presentation/presentation-dealer/NetMQ.WebSockets.Tests/bin/Debug/NetMQ.WebSockets.pdb
+/home/michael/git/zeromq-presentation/presentation-dealer/NetMQ.WebSockets.Tests/bin/Debug/NetMQ.WebSockets.dll.config
+/home/michael/git/zeromq-presentation/presentation-dealer/NetMQ.WebSockets.Tests/bin/Debug/AsyncIO.pdb
+/home/michael/git/zeromq-presentation/presentation-dealer/NetMQ.WebSockets.Tests/bin/Debug/nunit.framework.xml
+/home/michael/git/zeromq-presentation/presentation-dealer/NetMQ.WebSockets.Tests/obj/Debug/NetMQ.WebSockets.Tests.csprojAssemblyReference.cache
+/home/michael/git/zeromq-presentation/presentation-dealer/NetMQ.WebSockets.Tests/obj/Debug/NetMQ.WebSockets.Tests.csproj.CoreCompileInputs.cache
+/home/michael/git/zeromq-presentation/presentation-dealer/NetMQ.WebSockets.Tests/obj/Debug/NetMQ.WebSockets.Tests.csproj.CopyComplete
+/home/michael/git/zeromq-presentation/presentation-dealer/NetMQ.WebSockets.Tests/obj/Debug/NetMQ.WebSockets.Tests.dll
+/home/michael/git/zeromq-presentation/presentation-dealer/NetMQ.WebSockets.Tests/obj/Debug/NetMQ.WebSockets.Tests.pdb
