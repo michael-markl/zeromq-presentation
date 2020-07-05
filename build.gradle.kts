@@ -1,4 +1,5 @@
 plugins {
+    application
     java
     kotlin("jvm") version "1.3.72"
 }
@@ -17,9 +18,17 @@ dependencies {
     implementation("org.jline:jline:3.1.3")
 }
 
+application {
+    mainClassName = "presenter.Main"
+}
+
 configure<JavaPluginConvention> {
     sourceCompatibility = JavaVersion.VERSION_1_8
 }
+
+val run: JavaExec by tasks
+run.standardInput = System.`in`
+
 tasks {
     compileKotlin {
         kotlinOptions.jvmTarget = "1.8"

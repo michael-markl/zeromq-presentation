@@ -10,7 +10,7 @@ namespace PresentationDealer
     {
         private static void Main(string[] args)
         {
-            using (var pull = new PullSocket()) // For receiving updates from presentation host
+            using (var pull = new PullSocket()) // For pulling updates from presentation host
             using (var publisher = new WSPublisher()) // For publishing updates from presentation host to audience
             using (var router = new WSRouter()) { // Handling on-demand requests for late-joining or crashing clients
                 pull.Bind("tcp://*:3000");

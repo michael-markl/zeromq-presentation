@@ -1,3 +1,5 @@
+@file:JvmName("Main")
+
 package presenter
 
 import org.zeromq.SocketType
