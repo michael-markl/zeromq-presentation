@@ -1,4 +1,4 @@
-package presentation.pub_sub
+package pub_sub
 
 import org.zeromq.SocketType
 import org.zeromq.ZMQ

@@ -1,4 +1,4 @@
-package presentation.req_res
+package req_res
 
 import org.zeromq.SocketType
 import org.zeromq.ZMQ
