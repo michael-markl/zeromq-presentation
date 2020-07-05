@@ -24,7 +24,7 @@ namespace PresentationDealer
                     publisher.SendFrame(new [] { step });
                 };
                 router.ReceiveReady += (_, __) => {
-                    var msg = __.WSSocket.ReceiveMultipartMessage();
+                    var msg = router.ReceiveMultipartMessage();
                     var identity = msg.Pop().Buffer;
                     var request = msg.Pop().ConvertToString();
                     msg.Clear();
