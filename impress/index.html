@@ -12,8 +12,8 @@
                 const target = message.popBuffer()[0]
                 impress().goto(target % numberSlides)
             }
-            dealer.connect("ws://192.168.178.52:3002");
-            subscriber.connect("ws://192.168.178.52:3001");
+            dealer.connect("ws://zeromq.dynv6.net:3002");
+            subscriber.connect("ws://zeromq.dynv6.net:3001");
             subscriber.subscribe([])
             dealer.onMessage = subscriber.onMessage = handleMessage
             dealer.sendReady = () => { // Request update when launching
@@ -174,11 +174,11 @@
 
 
     <!-- 2.5244 = 1920/1080*1.42 -->
-    <div id="overview" class="step" data-x="0" data-y="0" data-z="" data-scale="2.5244" data-rotate="360">
+    <div id="overview" class="step" data-x="0" data-y="0" data-scale="2.5244" data-rotate="360">
     </div>
 
     <!-- 2.5244 = 1920/1080*1.42 -->
-    <div id="back-side" class="step" data-x="0" data-y="0" data-z="" data-scale="2.5244" data-rotate="360" data-rotate-y="180">
+    <div id="back-side" class="step" data-x="0" data-y="0" data-z="-0.1" data-scale="2.5244" data-rotate="360" data-rotate-y="180">
     </div>
 
 </div>
