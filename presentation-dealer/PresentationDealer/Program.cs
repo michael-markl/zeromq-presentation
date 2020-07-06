@@ -19,21 +19,28 @@ namespace PresentationDealer
 
                 byte step = 0;
                 pull.ReceiveReady += (_, __) => {
-                    step = pull.ReceiveFrameBytes()[0];
-                    Console.Out.WriteLine("Sending " + step + " to audience.");
-                    publisher.SendFrame(new [] { step });
+                    try {
+                        step = pull.ReceiveFrameBytes()[0];
+                        Console.Out.WriteLine("Sending " + step + " to audience.");
+                        publisher.SendFrame(new[] {step});
+                    } catch (Exception e) { Console.Error.WriteLine(e.Message); }
                 };
                 router.ReceiveReady += (_, __) => {
-                    var msg = router.ReceiveMultipartMessage();
-                    var identity = msg.Pop().Buffer;
-                    var request = msg.Pop().ConvertToString();
-                    msg.Clear();
-                    if (request == "Give me an update!") {
-                        router.SendMultipartBytes(identity, new [] {step});
-                    } else {
-                        router.SendMoreFrame(identity);
-                        router.SendFrameEmpty();
-                    }
+                    try {
+                        var msg = router.ReceiveMultipartMessage();
+                        var identity = msg.Pop().Buffer;
+                        var request = msg.Pop().ConvertToString();
+                        msg.Clear();
+                        if (request == "Give me an update!")
+                        {
+                            router.SendMultipartBytes(identity, new[] {step});
+                        }
+                        else
+                        {
+                            router.SendMoreFrame(identity);
+                            router.SendFrameEmpty();
+                        }
+                    } catch (Exception e) { Console.Error.WriteLine(e.Message); }
                 };
 
                 new NetMQPoller {pull, router}.Run(); // Polling both subscriber and router sockets.
