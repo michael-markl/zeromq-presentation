@@ -4149,7 +4149,7 @@
         window.impress().goto( document.querySelector( "#impress .step.active" ) );
     } );
 
-} )( document, window );
+} )
 
 /**
  * Toolbar plugin
@@ -4308,3 +4308,11 @@
     } // If toolbar
 
 } )( document );
+
+
+( function( document, window ) {
+    "use strict";
+    if (window.localStorage.getItem('dev')) {
+        document.body.removeChild(document.getElementById('fullscreen'));
+    }
+} )( document, window );
