@@ -236,6 +236,62 @@
                 </div>
                 <div>
                     <h2>Pipeline</h2>
+                    <svg width="400" height="400">
+                        <defs>
+                            <marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="3" orient="auto-start-reverse"
+                                    markerUnits="strokeWidth">
+                                <path d="M0,0 L0,6 L10,3 z" fill="#333"/>
+                            </marker>
+                        </defs>
+
+                        <rect x="150" y="0" width="100" height="100" fill="#777" rx="20" ry="20"/>
+                        <text x="200" y="50" text-anchor="middle" fill="#fff" dominant-baseline="middle" font-size="30">
+                            PUSH
+                        </text>
+
+
+                        <rect x="0" y="150" width="100" height="100" fill="#777" rx="20" ry="20"/>
+                        <text x="50" y="170" text-anchor="middle" fill="#fff" dominant-baseline="middle" font-size="30">
+                            PULL
+                        </text>
+                        <text x="50" y="230" text-anchor="middle" fill="#fff" dominant-baseline="middle" font-size="30">
+                            PUSH
+                        </text>
+
+                        <rect x="150" y="150" width="100" height="100" fill="#777" rx="20" ry="20"/>
+                        <text x="200" y="170" text-anchor="middle" fill="#fff" dominant-baseline="middle" font-size="30">
+                            PULL
+                        </text>
+                        <text x="200" y="230" text-anchor="middle" fill="#fff" dominant-baseline="middle" font-size="30">
+                            PUSH
+                        </text>
+
+                        <rect x="300" y="150" width="100" height="100" fill="#777" rx="20" ry="20"/>
+                        <text x="350" y="170" text-anchor="middle" fill="#fff" dominant-baseline="middle" font-size="30">
+                            PULL
+                        </text>
+                        <text x="350" y="230" text-anchor="middle" fill="#fff" dominant-baseline="middle" font-size="30">
+                            PUSH
+                        </text>
+
+                        <rect x="150" y="300" width="100" height="100" fill="#777" rx="20" ry="20"/>
+                        <text x="200" y="350" text-anchor="middle" fill="#fff" dominant-baseline="middle" font-size="30">
+                            PULL
+                        </text>
+
+                        <line x1="200" y1="100" x2="110" y2="150" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
+                        <line x1="200" y1="100" x2="200" y2="130" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
+                        <line x1="200" y1="100" x2="290" y2="150" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
+
+                        <line x1="95" y1="245" x2="180" y2="290" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
+                        <line x1="200" y1="250" x2="200" y2="280" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
+                        <line x1="305" y1="245" x2="220" y2="290" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
+                    </svg>
+                    <ul>
+                        <li>Parallelizable tasks are distributed to worker nodes.</li>
+                        <li>A sink node collects all results.</li>
+                        <li>Multiple publishers possible.</li>
+                    </ul>
                 </div>
                 <div>
                     <h2>Exclusive Pair</h2>
