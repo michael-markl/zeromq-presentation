@@ -4149,7 +4149,7 @@
         window.impress().goto( document.querySelector( "#impress .step.active" ) );
     } );
 
-} )
+} );
 
 /**
  * Toolbar plugin

@@ -277,6 +277,8 @@ JSMQ.Dealer = function() {
     return that;
 }
 
+JSMQ.Requester = JSMQ.Dealer
+
 JSMQ.Subscriber = function () {
 
     var that = new SocketBase(xattachEndpoint, xendpointTerminated, xhasOut, xsend, xonMessage);;
