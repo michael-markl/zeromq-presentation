@@ -7,8 +7,10 @@ import org.zeromq.ZMQ
 
 fun main() {
     val context = ZMQ.context(1) // New context with 1 IOThread
-    val push = context.socket(SocketType.PUSH)
+    val push = context.socket(SocketType.PUB)
     push.connect("tcp://*:3000")
+    Thread.sleep(100) // Give option to connect before sending first message
+
     var step = 0.toByte()
     while(true) {
         push.send(ByteArray(1) { step })

@@ -6,20 +6,20 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const numberSlides = document.getElementsByClassName("step").length
-            const subscriber = new JSMQ.Subscriber()
-            const requester = new JSMQ.Requester()
+            const subscriber = new JSMQ.Subscriber() // Subscribe to slide number
+            const requester = new JSMQ.Requester() // Requester necessary on load
             requester.connect("ws://zeromq.dynv6.net:3002");
             subscriber.connect("ws://zeromq.dynv6.net:3001");
             subscriber.subscribe([])
-            requester.onMessage = subscriber.onMessage = (message) => {
-                const target = message.popBuffer()[0]
-                impress().goto(target % numberSlides)
-            }
             requester.sendReady = () => { // Request update when launching
                 const msg = new JSMQ.Message();
-                msg.addString("Give me an update!")
+                msg.addString("Which slide are we on?")
                 requester.send(msg);
             };
+            requester.onMessage = subscriber.onMessage = (message) => {
+                const targetSlide = message.popBuffer()[0]
+                impress().goto(targetSlide % numberSlides)
+            }
         })
     </script>
     <meta name="viewport" content="width=1024"/>
@@ -115,7 +115,7 @@
                     <line x1="950" y1="200" x2="950" y2="275" stroke="#333" stroke-width="5"
                           marker-end="url(#arrow)"/>
                     <line x1="995" y1="195" x2="1180" y2="295" stroke="#333" stroke-width="5"
-                      marker-end="url(#arrow)"/>
+                          marker-end="url(#arrow)"/>
                 </g>
             </svg>
             <div>
@@ -136,7 +136,7 @@
         <div>
             <h1>What is ZeroMQ?</h1>
             <ul style="list-style-type: circle">
-                <li>Uses sockets as building blocks for a distributed architecture.</li>
+                <li>Uses sockets as a basis for a distributed messaging architecture.</li>
                 <li>Sockets carry atomic messages treated as byte arrays.</li>
                 <li>Sockets can bind to various transport protocols:<br/>inproc, IPC, TCP, UDP, TIPC, multicast and
                     WebSocket.
@@ -145,7 +145,7 @@
                     C, C++, Java, Python, C#, Ruby, Go, NodeJS, Perl, Rust, Haskell, F#, ...
                 </li>
                 <li>Lightweight library focused on high-speed, low-latency messaging.</li>
-                <li>Implemented patterns for easily building complex networking behavior.</li>
+                <li>Implemented patterns are building block for complex networking behavior.</li>
             </ul>
         </div>
     </div>
@@ -164,10 +164,11 @@
             <p>Most important patterns:</p>
             <div id="patterns-container">
                 <div>
-                    <h2>Req-Res</h2>
+                    <h2>Req-Rep</h2>
                     <svg width="400" height="400">
                         <defs>
-                            <marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="3" orient="auto-start-reverse"
+                            <marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="3"
+                                    orient="auto-start-reverse"
                                     markerUnits="strokeWidth">
                                 <path d="M0,0 L0,6 L10,3 z" fill="#333"/>
                             </marker>
@@ -180,11 +181,13 @@
 
 
                         <rect x="150" y="300" width="100" height="100" fill="#777" rx="20" ry="20"/>
-                        <text x="200" y="350" text-anchor="middle" fill="#fff" dominant-baseline="middle" font-size="30">
+                        <text x="200" y="350" text-anchor="middle" fill="#fff" dominant-baseline="middle"
+                              font-size="30">
                             REP
                         </text>
 
-                        <line x1="200" y1="125" x2="200" y2="275" stroke="#333" stroke-width="5" marker-end="url(#arrow)"
+                        <line x1="200" y1="125" x2="200" y2="275" stroke="#333" stroke-width="5"
+                              marker-end="url(#arrow)"
                               marker-start="url(#arrow)"/>
                     </svg>
                     <ul>
@@ -197,7 +200,8 @@
                     <h2>Pub-Sub</h2>
                     <svg width="400" height="400">
                         <defs>
-                            <marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="3" orient="auto-start-reverse"
+                            <marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="3"
+                                    orient="auto-start-reverse"
                                     markerUnits="strokeWidth">
                                 <path d="M0,0 L0,6 L10,3 z" fill="#333"/>
                             </marker>
@@ -211,25 +215,30 @@
 
                         <rect x="0" y="300" width="100" height="100" fill="#777" rx="20" ry="20"/>
                         <text x="50" y="350" text-anchor="middle" fill="#fff" dominant-baseline="middle" font-size="30">
-                            SUB1
+                            SUB
                         </text>
 
                         <rect x="150" y="300" width="100" height="100" fill="#777" rx="20" ry="20"/>
-                        <text x="200" y="350" text-anchor="middle" fill="#fff" dominant-baseline="middle" font-size="30">
-                            SUB2
+                        <text x="200" y="350" text-anchor="middle" fill="#fff" dominant-baseline="middle"
+                              font-size="30">
+                            SUB
                         </text>
 
                         <rect x="300" y="300" width="100" height="100" fill="#777" rx="20" ry="20"/>
-                        <text x="350" y="350" text-anchor="middle" fill="#fff" dominant-baseline="middle" font-size="30">
-                            SUB3
+                        <text x="350" y="350" text-anchor="middle" fill="#fff" dominant-baseline="middle"
+                              font-size="30">
+                            SUB
                         </text>
 
-                        <line x1="200" y1="100" x2="60" y2="280" stroke="#333" stroke-width="5" marker-end="url(#arrow)"/>
-                        <line x1="200" y1="100" x2="200" y2="275" stroke="#333" stroke-width="5" marker-end="url(#arrow)"/>
-                        <line x1="200" y1="100" x2="340" y2="280" stroke="#333" stroke-width="5" marker-end="url(#arrow)"/>
+                        <line x1="200" y1="100" x2="60" y2="280" stroke="#333" stroke-width="5"
+                              marker-end="url(#arrow)"/>
+                        <line x1="200" y1="100" x2="200" y2="275" stroke="#333" stroke-width="5"
+                              marker-end="url(#arrow)"/>
+                        <line x1="200" y1="100" x2="340" y2="280" stroke="#333" stroke-width="5"
+                              marker-end="url(#arrow)"/>
                     </svg>
                     <ul>
-                        <li>SUBi connects to PUB.</li>
+                        <li>Subscribers SUB connect to a publisher PUB.</li>
                         <li>PUB sends a message to all con&shy;nec&shy;ted nodes asynchro&shy;nously.</li>
                         <li>Multiple publishers possible.</li>
                     </ul>
@@ -238,7 +247,8 @@
                     <h2>Pipeline</h2>
                     <svg width="400" height="400">
                         <defs>
-                            <marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="3" orient="auto-start-reverse"
+                            <marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="3"
+                                    orient="auto-start-reverse"
                                     markerUnits="strokeWidth">
                                 <path d="M0,0 L0,6 L10,3 z" fill="#333"/>
                             </marker>
@@ -259,52 +269,176 @@
                         </text>
 
                         <rect x="150" y="150" width="100" height="100" fill="#777" rx="20" ry="20"/>
-                        <text x="200" y="170" text-anchor="middle" fill="#fff" dominant-baseline="middle" font-size="30">
+                        <text x="200" y="170" text-anchor="middle" fill="#fff" dominant-baseline="middle"
+                              font-size="30">
                             PULL
                         </text>
-                        <text x="200" y="230" text-anchor="middle" fill="#fff" dominant-baseline="middle" font-size="30">
+                        <text x="200" y="230" text-anchor="middle" fill="#fff" dominant-baseline="middle"
+                              font-size="30">
                             PUSH
                         </text>
 
                         <rect x="300" y="150" width="100" height="100" fill="#777" rx="20" ry="20"/>
-                        <text x="350" y="170" text-anchor="middle" fill="#fff" dominant-baseline="middle" font-size="30">
+                        <text x="350" y="170" text-anchor="middle" fill="#fff" dominant-baseline="middle"
+                              font-size="30">
                             PULL
                         </text>
-                        <text x="350" y="230" text-anchor="middle" fill="#fff" dominant-baseline="middle" font-size="30">
+                        <text x="350" y="230" text-anchor="middle" fill="#fff" dominant-baseline="middle"
+                              font-size="30">
                             PUSH
                         </text>
 
                         <rect x="150" y="300" width="100" height="100" fill="#777" rx="20" ry="20"/>
-                        <text x="200" y="350" text-anchor="middle" fill="#fff" dominant-baseline="middle" font-size="30">
+                        <text x="200" y="350" text-anchor="middle" fill="#fff" dominant-baseline="middle"
+                              font-size="30">
                             PULL
                         </text>
 
-                        <line x1="200" y1="100" x2="110" y2="150" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
-                        <line x1="200" y1="100" x2="200" y2="130" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
-                        <line x1="200" y1="100" x2="290" y2="150" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
+                        <line x1="200" y1="100" x2="110" y2="150" stroke="#333" stroke-width="4"
+                              marker-end="url(#arrow)"/>
+                        <line x1="200" y1="100" x2="200" y2="130" stroke="#333" stroke-width="4"
+                              marker-end="url(#arrow)"/>
+                        <line x1="200" y1="100" x2="290" y2="150" stroke="#333" stroke-width="4"
+                              marker-end="url(#arrow)"/>
 
-                        <line x1="95" y1="245" x2="180" y2="290" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
-                        <line x1="200" y1="250" x2="200" y2="280" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
-                        <line x1="305" y1="245" x2="220" y2="290" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
+                        <line x1="95" y1="245" x2="180" y2="290" stroke="#333" stroke-width="4"
+                              marker-end="url(#arrow)"/>
+                        <line x1="200" y1="250" x2="200" y2="280" stroke="#333" stroke-width="4"
+                              marker-end="url(#arrow)"/>
+                        <line x1="305" y1="245" x2="220" y2="290" stroke="#333" stroke-width="4"
+                              marker-end="url(#arrow)"/>
                     </svg>
                     <ul>
                         <li>Parallelizable tasks are distributed to worker nodes.</li>
                         <li>A sink node collects all results.</li>
-                        <li>Multiple publishers possible.</li>
                     </ul>
                 </div>
                 <div>
                     <h2>Exclusive Pair</h2>
+                    <svg width="400" height="400">
+                        <defs>
+                            <marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="3"
+                                    orient="auto-start-reverse"
+                                    markerUnits="strokeWidth">
+                                <path d="M0,0 L0,6 L10,3 z" fill="#333"/>
+                            </marker>
+                        </defs>
+
+                        <rect x="150" y="0" width="100" height="100" fill="#777" rx="20" ry="20"/>
+                        <text x="200" y="50" text-anchor="middle" fill="#fff" dominant-baseline="middle" font-size="30">
+                            PAIR
+                        </text>
+
+
+                        <rect x="150" y="300" width="100" height="100" fill="#777" rx="20" ry="20"/>
+                        <text x="200" y="350" text-anchor="middle" fill="#fff" dominant-baseline="middle"
+                              font-size="30">
+                            PAIR
+                        </text>
+
+                        <line x1="200" y1="125" x2="200" y2="275" stroke="#333" stroke-width="5"
+                              marker-end="url(#arrow)"
+                              marker-start="url(#arrow)"/>
+                    </svg>
+                    <ul>
+                        <li>Connects two architecturally stable peers.</li>
+                        <li>Allows at most one connection.</li>
+                        <li>Used for inter-thread communication.</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
+    <div id="zeromq-patterns-2" class="step" data-x="0" data-y="1000" data-scale="0.3" data-rotate="180"></div>
+    <div id="zeromq-patterns-3" class="step" data-x="0" data-y="1000" data-scale="0.3" data-rotate="180"></div>
+    <div id="zeromq-patterns-4" class="step" data-x="0" data-y="1000" data-scale="0.3" data-rotate="180"></div>
+    <div id="zeromq-patterns-5" class="step" data-x="0" data-y="1000" data-scale="0.3" data-rotate="180"></div>
 
-    <div id="lets-code" class="step box" data-x="-1000" data-y="0" data-scale="0.3" data-rotate="270">
+
+    <div id="lets-code-1" class="step box" data-x="-1000" data-y="0" data-scale="0.3" data-rotate="270">
         <div>
-            &lt;/&gt;
+            <div id="codey">
+                &lt;/&gt;
+            </div>
+            <svg width="1000" height="800">
+                <defs>
+                    <marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="3"
+                            orient="auto-start-reverse"
+                            markerUnits="strokeWidth">
+                        <path d="M0,0 L0,6 L10,3 z" fill="#333"/>
+                    </marker>
+                </defs>
+
+                <rect x="400" y="0" width="200" height="200" fill="#777" rx="20" ry="20"/>
+                <text x="500" y="100" text-anchor="middle" fill="#fff" dominant-baseline="middle" font-size="30">
+                    Me
+                </text>
+                <text x="500" y="180" text-anchor="middle" fill="#fff" dominant-baseline="middle" font-size="30">
+                    PUB
+                </text>
+
+
+                <rect x="400" y="300" width="200" height="200" fill="#777" rx="20" ry="20"/>
+                <text x="500" y="400" text-anchor="middle" fill="#fff" dominant-baseline="middle" font-size="30">
+                    Dealer
+                </text>
+                <text x="500" y="320" text-anchor="middle" fill="#fff" dominant-baseline="middle" font-size="30">
+                    SUB
+                </text>
+                <text x="550" y="480" text-anchor="middle" fill="#fff" dominant-baseline="middle" font-size="30">
+                    PUB
+                </text>
+                <text x="450" y="480" text-anchor="middle" fill="#fff" dominant-baseline="middle" font-size="30">
+                    REP
+                </text>
+
+                <rect x="400" y="600" width="200" height="200" fill="#777" rx="20" ry="20"/>
+                <text x="500" y="700" text-anchor="middle" fill="#fff" dominant-baseline="middle" font-size="30">
+                    You
+                </text>
+                <text x="550" y="620" text-anchor="middle" fill="#fff" dominant-baseline="middle" font-size="30">
+                    SUB
+                </text>
+                <text x="450" y="620" text-anchor="middle" fill="#fff" dominant-baseline="middle" font-size="30">
+                    REQ
+                </text>
+
+                <rect x="100" y="600" width="200" height="200" fill="#777" rx="20" ry="20"/>
+                <text x="200" y="700" text-anchor="middle" fill="#fff" dominant-baseline="middle" font-size="30">
+                    You
+                </text>
+                <text x="250" y="620" text-anchor="middle" fill="#fff" dominant-baseline="middle" font-size="30">
+                    SUB
+                </text>
+                <text x="150" y="620" text-anchor="middle" fill="#fff" dominant-baseline="middle" font-size="30">
+                    REQ
+                </text>
+
+                <rect x="700" y="600" width="200" height="200" fill="#777" rx="20" ry="20"/>
+                <text x="800" y="700" text-anchor="middle" fill="#fff" dominant-baseline="middle" font-size="30">
+                    You
+                </text>
+                <text x="850" y="620" text-anchor="middle" fill="#fff" dominant-baseline="middle" font-size="30">
+                    SUB
+                </text>
+                <text x="750" y="620" text-anchor="middle" fill="#fff" dominant-baseline="middle" font-size="30">
+                    REQ
+                </text>
+
+
+                <line x1="500" y1="200" x2="500" y2="280" stroke="#333" stroke-width="4"
+                      marker-end="url(#arrow)"/>
+
+
+                <line x1="450" y1="520" x2="450" y2="580" stroke="#333" stroke-width="4"
+                      marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+                <line x1="550" y1="500" x2="550" y2="580" stroke="#333" stroke-width="4"
+                      marker-end="url(#arrow)"/>
+            </svg>
         </div>
     </div>
+
+    <div id="lets-code-2" class="step" data-x="-1000" data-y="0" data-scale="0.3" data-rotate="270"></div>
 
 
     <!-- 2.5244 = 1920/1080*1.42 -->
@@ -314,6 +448,24 @@
     <!-- 2.5244 = 1920/1080*1.42 -->
     <div id="back-side" class="step" data-x="0" data-y="0" data-z="-1" data-scale="2.5244" data-rotate="360"
          data-rotate-y="180">
+        <div>
+            <h3>Benefits</h3>
+            <ul>
+                <li>Very lightweight with low latency</li>
+                <li>Supports most programming languages</li>
+                <li>Open source with a quite large community</li>
+                <li>Very flexible</li>
+            </ul>
+        </div>
+        <div style="height: 800px; width: 2px; background-color: #999;"></div>
+        <div>
+            <h3>Drawbacks</h3>
+            <ul>
+                <li>No persistence out of the box</li>
+                <li>No native TLS support</li>
+                <li>Some bindings and protocols incomplete or not well maintained.</li>
+            </ul>
+        </div>
     </div>
 
 </div>
