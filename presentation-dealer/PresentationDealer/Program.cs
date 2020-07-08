@@ -3,6 +3,12 @@ using NetMQ;
 using NetMQ.Sockets;
 using NetMQ.WebSockets;
 
+/*
+ Unfortunately NetMq.WebSockets WSPublisher has a problem
+ forcing the process to quit, once a node looses connection while sending.
+ See https://github.com/NetMQ/NetMQ.WebSockets/issues/9 for more information.
+ */
+
 namespace PresentationDealer {
     static class Program {
         private static void Main(string[] args) {
