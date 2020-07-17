@@ -5,6 +5,10 @@
     <script src="JSMQ.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Activate dev mode for all users, as presentation was already held synchronously.
+            // Now all users should be able to navigate themselves.
+            window.localStorage.setItem('dev', 'true')
+
             const numberSlides = document.getElementsByClassName("step").length
             const subscriber = new JSMQ.Subscriber() // Subscribe to slide number
             const requester = new JSMQ.Requester() // Requester necessary on load
@@ -20,10 +24,6 @@
                 const targetSlide = message.popBuffer()[0]
                 impress().goto(targetSlide % numberSlides)
             }
-
-            // Activate dev mode for all users, as presentation was already held synchronously.
-            // Now all users should be able to navigate themselves.
-            window.localStorage.setItem('dev', 'true')
         })
     </script>
     <meta name="viewport" content="width=1024"/>
