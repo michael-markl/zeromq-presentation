@@ -20,6 +20,10 @@
                 const targetSlide = message.popBuffer()[0]
                 impress().goto(targetSlide % numberSlides)
             }
+
+            // Activate dev mode for all users, as presentation was already held synchronously.
+            // Now all users should be able to navigate themselves.
+            window.localStorage.setItem('dev', 'true')
         })
     </script>
     <meta name="viewport" content="width=1024"/>
